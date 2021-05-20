@@ -9,12 +9,12 @@ $city = City::get();
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{route('donates.create')}}" class="btn btn-sm btn-danger "><i class="fa fa-plus"></i> Bağış Oluştur</a>
-            </h5>
+             <!--  <a href="{{route('donates.create')}}" class="btn btn-sm btn-danger "><i class="fa fa-plus"></i> Bağış Oluştur</a>
+                --> </h5>
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Bağış</th>
+                    <th scope="col">Bağış Başlığı</th>
                     <th scope="col">Açıklama</th>
                     <th scope="col">Durum</th>
                     <th scope="col">Kan Grubu</th>
@@ -36,7 +36,7 @@ $city = City::get();
                         <td>{{$donate->created_at}}</td>
                         <td>
                             <a href="{{route('donates.edit', $donate->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="{{route('donates.destroy',$donate->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                   @endforeach

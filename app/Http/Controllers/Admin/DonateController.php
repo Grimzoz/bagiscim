@@ -98,6 +98,8 @@ class DonateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $donates =  Donate::find($id) ?? abort(404,'Bağış bulunamadı!');
+        $donates->delete();
+        return redirect()->route('donates.index')->withSuccess('Silme Başarılı');
     }
 }

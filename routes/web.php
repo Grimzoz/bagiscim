@@ -37,9 +37,14 @@ Route::group(['middleware' => 'auth'],function(){
 
 Route::group(['middleware',['auth','isAdmin'],'prefix'=>'admin'],function ()
 {
+    ///DELETE METODUNU GET İLE GÖNDERİYORUZ//////////
+    Route::get('donates/{id}',[DonateController::class,'destroy'])->whereNumber('id')->name('donates.destroy');
+    /////////////////////////
     Route::resource('donates',App\Http\Controllers\Admin\DonateController::class);
    //Route::resource('edit/{id}',App\Http\Controllers\Admin\DonateController::class);
     Route::resource('bagis',App\Http\Controllers\DonateCreateController::class);
+
+
 
 });
 
