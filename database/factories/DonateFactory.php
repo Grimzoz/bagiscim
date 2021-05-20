@@ -30,7 +30,8 @@ class DonateFactory extends Factory
         return [
             'title' => $title,
             'description' => $this->faker->text(200),
-            'slug' => Str::slug($title),
+            'name' => $this->faker->name('male'|'female'),
+            //'slug' => Str::slug($title),
             'city_id' => $city->id,
             'contact' => $this->faker->numberBetween(5300000000, 5400000000),
             'hospital' => $this->faker->company,

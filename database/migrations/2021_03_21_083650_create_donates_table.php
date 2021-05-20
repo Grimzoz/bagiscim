@@ -17,8 +17,9 @@ class CreateDonatesTable extends Migration
             $table->id();
             $table->foreignId('city_id')->constrained('cities');
             $table->string('title');
+            $table->string('name');
             $table->longText('description')->nullable();
-            $table->string('slug');
+            //$table->string('slug');
             $table->text('hospital');
             $table->bigInteger('contact');
             $table->enum('blood_type',['A+','A-','B+','B-','AB+','AB-','0+','0-']);

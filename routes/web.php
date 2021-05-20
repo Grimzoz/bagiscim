@@ -32,13 +32,15 @@ Route::get('/', function () {
 */
 Route::group(['middleware' => 'auth'],function(){
     Route::get('anasayfa',[MainController::class,'dashboard'])->name('dashboard');
-    Route::get('donate/{slug}',[MainController::class,'donate_detail'])->name('donate.detail');
+    Route::get('donate',[MainController::class,'donate_detail'])->name('donate.detail');
 });
 
 Route::group(['middleware',['auth','isAdmin'],'prefix'=>'admin'],function ()
 {
     Route::resource('donates',App\Http\Controllers\Admin\DonateController::class);
+   //Route::resource('edit/{id}',App\Http\Controllers\Admin\DonateController::class);
     Route::resource('bagis',App\Http\Controllers\DonateCreateController::class);
+
 });
 
 Route::group(['middleware',['auth']],function ()

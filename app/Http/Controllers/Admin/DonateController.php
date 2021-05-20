@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Donate;
+use App\Http\Requests\DonateCreateRequest;
+use App\Http\Requests\DonateUpdateRequest;
+
 
 class DonateController extends Controller
 {
@@ -59,7 +62,10 @@ class DonateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $donates =  Donate::find($id) ?? abort(404,'bağış bulunamadı!');
+        return view('admin.donate.edit',compact('donates'));
+        //['donates'=>$donates]
+
     }
 
     /**
@@ -69,9 +75,19 @@ class DonateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DonateUpdateRequest $request, $id)
     {
-        //
+        $donates =  Donate::find($id) ?? abort(404,'Bağış Bulunamadı!');
+
+        Donate::where('id',$id)->update($request->except(['_method','_token']));
+        /*METHOD VE TOKEN HARİÇ GÜNCELLE. ONLAR POST OLARAK GELİYOR, UPDATE PUT OLDUĞU İÇİN*/
+
+        //Donate::where('id',$id)->update($request->except(['_method','_token']));
+
+        return redirect()->route('donates.index')->withSuccess('Başarılı', 'Başarıyla Güncellendi!');
+
+        //$donates->update($request->all());
+        //return redirect()->route('')->with('success', 'Project updated successfully');
     }
 
     /**

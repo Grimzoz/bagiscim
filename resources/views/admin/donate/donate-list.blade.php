@@ -1,4 +1,9 @@
+<?php
+use App\Models\City;
+//$city = City::all();
+$city = City::get();
 
+?>
 <x-app-layout>
     <x-slot name="header">Bağışlar</x-slot>
     <div class="card">
@@ -20,8 +25,8 @@
                 </thead>
                 <tbody>
                     @foreach ($donates as $donate)
-                        
-                    
+
+
                     <tr>
                         <th>{{$donate->title}}</th>
                         <td>{{$donate->description}}</td>
@@ -30,7 +35,7 @@
                         <td>{{$donate->contact}}</td>
                         <td>{{$donate->created_at}}</td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
+                            <a href="{{route('donates.edit', $donate->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pen"></i></a>
                             <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>

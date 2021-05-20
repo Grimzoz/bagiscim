@@ -39,14 +39,15 @@
                     </a>
                 @endif
 
-                    <x-jet-button class="ml-4 ">
-                        <a  href="{{ route('register')}}"  class="text-white" >{{ __('Kayıt Ol') }}</a>
-                    </x-jet-button>
+
 
                 <x-jet-button class="ml-4 btn-danger">
                     {{ __('Giriş') }}
                 </x-jet-button>
 
+                    <x-jet-button class="ml-4 ">
+                        <a  href="{{ route('register')}}"  class="text-white" >{{ __('Kayıt Ol') }}</a>
+                    </x-jet-button>
             </div>
 
         </form>

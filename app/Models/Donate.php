@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Donate extends Model
 {
     use HasFactory;
-   // use Sluggable;
+ //   use Sluggable;
 
-    protected $fillable=['title','description','blood_type','city_id','hospital','contact'];
-   /* public function sluggable(): array
+    protected $fillable=['title','name','description','blood_type','city_id','hospital','contact'];
+    /*public function sluggable(): array
     {
         return [
             'slug' => [

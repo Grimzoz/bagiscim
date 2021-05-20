@@ -20,6 +20,10 @@ $city = City::get();
                         zaman daha önceden dışarıdan girilen veriyi ekrana getirir
                     -->
                 </div>
+                <div class="form-group">
+                    <label>Hasta Adı ve Soyadı</label>
+                    <input name="name" class="form-control" value="{{ old('name') }}" >
+                </div>
 
                 <div class="form-group">
                     <label>Kan Grubu</label>
@@ -34,8 +38,8 @@ $city = City::get();
                     <input type="radio" name="blood_type" value="0-">0-
                 </div>
 
-                
-        
+
+
                 <div class="form-gruoup">
                     <select name="city_id" id="city_id" class="form-control">
                     <option> Şehir Seçiniz </option>
@@ -43,8 +47,8 @@ $city = City::get();
                             <option value='{{ $cities->id }}'>{{ $cities->city_name }}</option>
                         @endforeach
 
-                    </select>    
-    
+                    </select>
+
                 </select>
                 <br>
 
